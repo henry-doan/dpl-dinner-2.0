@@ -47,7 +47,11 @@ class DinerProvider extends Component {
   }
 
   deleteDiner = (id) => {
-    
+    axios.delete(`/api/diners/${id}`)
+      .then( res => {
+        const { diners } = this.state
+        this.setState({ diners: diners.filter( d => d.id !== id )})
+      })
   }
 
   render() {
@@ -56,6 +60,7 @@ class DinerProvider extends Component {
         ...this.state,
         addDiner: this.addDiner,
         updateDiner: this.updateDiner,
+        deleteDiner: this.deleteDiner,
       }}>
         { this.props.children }
       </DinerContext.Provider>
