@@ -6,6 +6,7 @@ import NoMatch from './components/shared/NoMatch';
 import { Container } from 'semantic-ui-react';
 import Navbar from './components/shared/Navbar';
 import Diners from './components/diners/Diners';
+import DinerShow from './components/diners/DinerShow';
 
 const App = () => (
   <>
@@ -15,6 +16,7 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <Route exact path='/about' component={About} />
         <Route exact path='/diners' component={Diners} />
+        <Route exact path='/diners/:id' component={DinerShow} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
