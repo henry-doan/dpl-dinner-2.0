@@ -7,3 +7,5 @@ const NoMatch = () => (
     <Link to='home'>Return Home</Link>
   </>
 )
+
+export default NoMatch;
