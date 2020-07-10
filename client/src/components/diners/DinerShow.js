@@ -36,7 +36,7 @@ class DinerShow extends Component {
         <Button onClick={() => deleteDiner(id, history)}>
           Delete
         </Button>
-        <Menus dinerId={id} />
+        <Menus dinerId={id} history={history} />
       </>
     )
   }

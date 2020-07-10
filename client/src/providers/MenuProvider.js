@@ -40,11 +40,12 @@ class MenuProvider extends Component {
     .catch( err => console.log(err) )
   }
 
-  deleteMenu = (diner_id, id) => {
+  deleteMenu = (diner_id, id, history) => {
     axios.delete(`/api/diners/${diner_id}/menus/${id}`)
       .then( res => {
         const { menus } = this.state
         this.setState({ menus: menus.filter( m => m.id !== id )})
+        history.push('/diners')
       })
       .catch( err => console.log(err) )
   }

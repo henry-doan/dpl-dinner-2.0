@@ -11,12 +11,16 @@ class Menus extends Component {
   }
 
   render() {
-    const { addMenu, dinerId, menus } = this.props
+    const { addMenu, dinerId, menus, deleteMenu, history } = this.props
     return(
       <>
         <h1>Menus:</h1>
         <MenuForm addMenu={addMenu} dinerId={dinerId} />
-        <MenuList menus={menus} />
+        <MenuList 
+          menus={menus} 
+          deleteMenu={deleteMenu} 
+          history={history}  
+        />
       </>
     )
   }
