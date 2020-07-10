@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import { MenuConsumer } from '../../providers/MenuProvider';
 import MenuForm from './MenuForm';
 import { DinerConsumer } from '../../providers/DinerProvider';
+import MenuList from './MenuList';
 
 class Menus extends Component {
+  componentDidMount() {
+    const { getAllMenus, dinerId } = this.props
+    getAllMenus(dinerId)
+  }
+
   render() {
-    const { addMenu, dinerId } = this.props
+    const { addMenu, dinerId, menus } = this.props
     return(
       <>
         <h1>Menus:</h1>
         <MenuForm addMenu={addMenu} dinerId={dinerId} />
+        <MenuList menus={menus} />
       </>
     )
   }
