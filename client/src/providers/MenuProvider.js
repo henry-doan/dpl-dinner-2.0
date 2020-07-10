@@ -25,7 +25,7 @@ class MenuProvider extends Component {
       .catch( err => console.log(err) )
   }
 
-  updateMenu = (diner_id, id, menu) => {
+  updateMenu = (diner_id, id, menu, history) => {
     axios.put(`/api/diners/${diner_id}/menus/${id}`, { menu } )
     .then( res => {
       const menus = this.state.menus.map( m => {
@@ -35,6 +35,7 @@ class MenuProvider extends Component {
         return m
       })
       this.setState({ menus: menus })
+      history.push('/diners')
     })
     .catch( err => console.log(err) )
   }

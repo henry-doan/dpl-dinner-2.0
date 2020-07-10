@@ -6,7 +6,10 @@ const MenuList = ({ menus }) => (
   <>
     { 
       menus.map( m => 
-        <Link to='/'>
+        <Link to={{
+          pathname: `/menus/${m.id}`,
+          state: { ...m }
+        }}>
           <Card>
             <Card.Header>{m.title}</Card.Header>
           </Card>

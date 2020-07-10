@@ -4,6 +4,13 @@ import { Form } from 'semantic-ui-react';
 class MenuForm extends Component {
   state = { title: '' }
 
+  componentDidMount() {
+    if (this.props.id) {
+      const { title } = this.props
+      this.setState({ title })
+    }
+  }
+
   handleChange = (e) => {
     const { name, value } = e.target
     this.setState({ [name]: value })
@@ -11,7 +18,12 @@ class MenuForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.addMenu( this.props.dinerId, this.state)
+    if (this.props.id) {
+      const { updateMenu, dinerId, id, history } = this.props
+      updateMenu(dinerId, id, this.state, history)
+    } else {
+      this.props.addMenu( this.props.dinerId, this.state)
+    }
     this.setState({ title: '' })
   }
 
