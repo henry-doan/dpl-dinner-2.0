@@ -51,6 +51,7 @@ class MenuProvider extends Component {
   render() {
     return(
       <MenuContext.Provider value={{
+        ...this.state,
         getAllMenus: this.getAllMenus,
         addMenu: this.addMenu,
         updateMenu: this.updateMenu,

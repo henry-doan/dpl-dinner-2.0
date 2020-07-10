@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DinerConsumer } from '../../providers/DinerProvider';
 import { Button } from 'semantic-ui-react';
 import DinerForm from './DinerForm';
+import Menus from '../menus/Menus';
 
 class DinerShow extends Component {
   state = { editing: false }
@@ -35,6 +36,7 @@ class DinerShow extends Component {
         <Button onClick={() => deleteDiner(id, history)}>
           Delete
         </Button>
+        <Menus dinerId={id} />
       </>
     )
   }

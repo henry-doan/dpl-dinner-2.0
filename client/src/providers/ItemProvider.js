@@ -51,6 +51,7 @@ class ItemProvider extends Component {
   render() {
     return(
       <ItemContext.Provider value={{
+        ...this.state,
         getAllItems: this.getAllItems,
         addItem: this.addItem,
         updateItem: this.updateItem,
