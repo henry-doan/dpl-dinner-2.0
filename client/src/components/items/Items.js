@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { ItemConsumer } from '../../providers/ItemProvider';
 import ItemForm from './ItemForm';
-import { Card, Grid, Button } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
+import ItemShow from './ItemShow';
 
 class Items extends Component {
   componentDidMount() {
@@ -14,24 +15,12 @@ class Items extends Component {
     return(
       this.props.items.map( i => {
         return(
-          <Grid.Column>
-            <Card>
-              <Card.Header>{i.name}</Card.Header>
-              <Card.Content>
-                {i.price}
-              </Card.Content>
-              <Card.Content extra>
-                <div className='ui two buttons'>
-                  <Button basic color='yellow'>
-                    Edit
-                  </Button>
-                  <Button basic color='red' onClick={() => deleteItem(menuId, i.id)}>
-                    Delete
-                  </Button>
-                </div>
-              </Card.Content>
-            </Card>
-          </Grid.Column>
+          <ItemShow 
+            updateItem={updateItem} 
+            deleteItem={deleteItem} 
+            menuId={menuId} 
+            {...i}
+          />
         )
       })
     )
